@@ -8,18 +8,21 @@ class NightWriter
 
   def initialize
     # encode_file_to_braille(message)
-    @file_reader = FileManager.new
+  end
+
+  def read
+    filename = ARGV[0]
+    File.read(filename)
+  end
+
+  def write(path, contents)
+    File.write(path, contents)
   end
 
   def encode_file_to_braille(input)
     writer = File.open(ARGV[1], "w")
     writer.write(input)
     writer.close
-
-  #   capitalized_text = incoming_text.upcase
-  # writer = File.open(ARGV[1], "w")
-  # writer.write(capitalized_text)
-  # writer.close
   end
 
   # def wrapper(input, line_length = 160)
