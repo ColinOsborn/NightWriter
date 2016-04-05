@@ -1,7 +1,11 @@
-
 class FileReader
-  def read
-    filename = ARGV[0]
-    File.read(filename)
+
+  # def read
+  #   filename = ARGV[0]
+  #   File.read(filename)
+  # end
+
+  def write(path, contents)
+    File.write(path, contents)
   end
 end
