@@ -41,4 +41,8 @@ class NightWriterTest < Minitest::Test
     assert_equal ".00..0.0..\n0.000.0000\n0.....0.0.", output
   end
 
+  def test_we_can
+    skip
+  end
+
 end

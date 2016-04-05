@@ -13,7 +13,7 @@ class NightWriter
 
   def encode_file_to_braille(input)
     writer = File.open(ARGV[1], "w")
-    writer.write()
+    writer.write(input)
     writer.close
 
   #   capitalized_text = incoming_text.upcase
