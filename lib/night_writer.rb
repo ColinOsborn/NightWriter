@@ -1,56 +1,48 @@
-require_relative 'file_reader'
-require './lib/english'
+require './lib/file_manager'
+require './lib/characters'
 require 'pry'
 
 class NightWriter
   attr_reader :file_reader
-  include English
+  include Characters
 
   def initialize
-    @file_reader = FileReader.new
+    # encode_file_to_braille(message)
+    @file_reader = FileManager.new
   end
 
   def encode_file_to_braille(input)
+    writer = File.open(ARGV[1], "w")
+    writer.write()
+    writer.close
+  end
+
+  # def wrapper(input, line_length = 160)
+  #   encode_to_braille(input).length < line_length ?
+  # end
+
+  def encode_to_braille(input)
     line1 = []
     line2 = []
     line3 = []
     input.chars.map do |char|
-      line1 << ENGLISH[char][0]
-      line2 << ENGLISH[char][1]
-      line3 << ENGLISH[char][2]
+      line1 << CHARACTERS[char][0]
+      line2 << CHARACTERS[char][1]
+      line3 << CHARACTERS[char][2]
     end
     this = "\n"
-    string = line1.join + this + line2.join + this + line3.join
-    return string
+    line1.join + this + line2.join + this + line3.join
   end
-
-  # def encode_to_braille(input_words)
-  #
-  #     # brings in the message -- message that has been ingested from that file
-  #     # you've taken in an INPUT string
-  #     # do the magic
-  #     # send out an OUTPUT string
-  #     # "Created 'braille.txt' containing 256 characters"
-  #     "111"
-  # end
 end
 
-puts ARGV.inspect
+if __FILE__ == $0
+  english = File.read('message.txt')
+
+  night_writer = NightWriter.new
+
+  braille = night_writer.translate('english')
+
+  File.write('braille.txt', braille)
+end
+# puts "Created '#{ARGV[1]}' containing #{NightWriter.new.char_count} characters" if File.exists?(ARGV[1])
 #  Shows me what my arguements are.
-
-# Iteration 1
-#Run a file from the command line and takes in two arguements,
-# name of input file will be first arg and second will be output file
-# output; a string with interpolation,
-# read output file name and num of characters in input file
- #
- # Iteration 2
-  # wanting to take in that "message.txt" read it,
-# then I want to create a new file "braille.txt"
-# inside that new file, that's the translated text to braille
-
-
-
-# prepare the string, no special characters,
-# I wouldn't worry about testing this method -- encode_file_to_braille
-#   # unless you get everything else done
