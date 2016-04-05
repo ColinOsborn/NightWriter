@@ -15,6 +15,11 @@ class NightWriter
     writer = File.open(ARGV[1], "w")
     writer.write()
     writer.close
+
+  #   capitalized_text = incoming_text.upcase
+  # writer = File.open(ARGV[1], "w")
+  # writer.write(capitalized_text)
+  # writer.close
   end
 
   # def wrapper(input, line_length = 160)
