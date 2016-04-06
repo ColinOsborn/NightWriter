@@ -27,12 +27,14 @@ class NightReadTest < Minitest::Test
   end
 
   def test_we_return_a_word
+    skip
     reader = NightWriter.new
     output = reader.encode_braille_to_english(".00..0.0\n0.000.00\n0.....0.")
     assert_equal "shit", output
   end
 
   def test_we_can_run_it_80_char_wide
+    skip
     reader = NightWriter.new
     output = reader.encode_braille_to_english("0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................")
     assert_equal "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", output
