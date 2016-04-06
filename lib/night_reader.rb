@@ -16,6 +16,7 @@ class NightReader
   end
 
   def encode_braille_to_english(input)
+    binding.pry
     line1 = []
     line2 = []
     line3 = []
@@ -29,3 +30,11 @@ class NightReader
   end
 
 end
+
+if __FILE__ == $0
+  english = File.read('message.txt')
+  night_writer = NightWriter.new
+  braille = night_writer.encode_to_braille(english.chomp)
+  File.write('braille.txt', braille)
+end
+# puts "Created '#{ARGV[1]}' containing 69 characters" if File.exists?(ARGV[1])

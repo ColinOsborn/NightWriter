@@ -42,4 +42,4 @@ if __FILE__ == $0
   braille = night_writer.encode_to_braille(english.chomp)
   File.write('braille.txt', braille)
 end
-puts "Created '#{ARGV[1]}' containing 69 characters" if File.exists?(ARGV[1])
+# puts "Created '#{ARGV[1]}' containing 69 characters" if File.exists?(ARGV[1])
