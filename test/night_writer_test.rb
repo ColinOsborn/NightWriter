@@ -51,9 +51,8 @@ class NightWriterTest < Minitest::Test
 
   def test_we_can_send_braille_to_files
     night_writer = NightWriter.new
-    output = night_writer.encode_braille_to_file(message.txt
-    assert_equal nil, output
+    output = night_writer.encode_braille_to_file(message.txt)
+    assert_equal , output
   end
-
 
 end
