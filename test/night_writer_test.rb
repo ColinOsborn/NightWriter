@@ -3,6 +3,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require "./lib/night_writer"
 
+
 class NightWriterTest < Minitest::Test
 
   def test_we_can_return_a_single_letter
@@ -41,10 +42,18 @@ class NightWriterTest < Minitest::Test
     assert_equal ".00..0.0..\n0.000.0000\n0.....0.0.", output
   end
 
-  def test_we_can_print_a_braille_message
+  def test_we_can_return_all_of_these_characters
+    skip
     night_writer = NightWriter.new
-
-
+    output = night_writer.encode_to_braille(" !',-.?abcdefghijklmnopqrstuvwxyz")
+    assert_equal nil, output
   end
+
+  def test_we_can_send_braille_to_files
+    night_writer = NightWriter.new
+    output = night_writer.encode_braille_to_file(message.txt
+    assert_equal nil, output
+  end
+
 
 end
