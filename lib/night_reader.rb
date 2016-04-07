@@ -16,19 +16,20 @@ class NightReader
   end
 
   def encode_braille_to_english(input)
-    line1 = []
-    line2 = []
-    line3 = []
     translate = input.prepend("\n")
-    translate.chars.map do |char|
-      
-        # line1 <<
-      end
-    end
+    built = []
+    built << translate.split
+    binding.pry
   end
-    # english = line1 + line2 + line3
-    # english.join
-    #
+    # translate = input.prepend("\n")
+    # built = translate.split("\n")
+    # container = []
+    # temp = built.shift
+    # container << built
+    # binding.pry
+    # a = container.map do |built|
+    #   ENGLISH[built]
+    # end.join
 end
 
 if __FILE__ == $0
